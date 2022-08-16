@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chime or CC?</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container text-center">
+    <h1 class="jumbotron">Chime or CC?</h1>
+    <div>
+      <ul style="list-style: none;">
+    
+        <!-- Loop through the dictionary -->
+        
+        {% for string in prompts %}
+          <li>{{string}}</li>
+        {% endfor %}
+        <br>
+        <br>
+        <form method="POST" action="/">
+          <li>What is your cashback rate (in %)?</li>
+            <input type="text" id="text" name="text-input">
+          <li>How much was your purchase?</li>
+              <input type="text" id="text-2" name="text-input-2">
+              <br>
+              <br>
+              <li><input type="submit"></li>
+            </form>
+        <br>
+        Your purchase amount was ${{data.spend_amt}}.
+        <br>
+        You should use {{data.card}}, <br>
+          as it gives you ${{data.g_cb}} in cashback, <br>
+         as opposed to your other card, which gives you <br>
+        ${{data.l_cb}} in cashback.
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
